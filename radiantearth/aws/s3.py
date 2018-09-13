@@ -14,8 +14,8 @@ from ..utils import mkdir_p
 s3 = boto3.client('s3')
 
 
-RF_ACCESS_POLICY = {
-    'Sid': 'RasterFoundryReadWriteAccess',
+RE_ACCESS_POLICY = {
+    'Sid': 'RadiantEarthReadWriteAccess',
     'Effect': 'Allow',
     'Principal': {
         'AWS': 'arn:aws:iam::615874746523:root'
@@ -33,7 +33,7 @@ RF_ACCESS_POLICY = {
 
 
 def authorize_bucket(bucket_name):
-    """Authorize Raster Foundry to read and write from an S3 bucket
+    """Authorize Radiant Earth to read and write from an S3 bucket
 
     Args:
         bucket_name (str): the name of the bucket to authorize
@@ -42,9 +42,9 @@ def authorize_bucket(bucket_name):
         int: the status code from the attempted policy change
     """
 
-    rf_access_policy = RF_ACCESS_POLICY.copy()
-    rf_access_policy['Resource'] = [
-        x.format(bucket_name) for x in rf_access_policy['Resource']
+    re_access_policy = RE_ACCESS_POLICY.copy()
+    re_access_policy['Resource'] = [
+        x.format(bucket_name) for x in re_access_policy['Resource']
     ]
 
     try:
@@ -56,7 +56,7 @@ def authorize_bucket(bucket_name):
             'Statement': []
         }
 
-    existing_policy['Statement'].append(rf_access_policy)
+    existing_policy['Statement'].append(re_access_policy)
     new_policy_str = json.dumps(existing_policy)
     return s3.put_bucket_policy(
         Bucket=bucket_name, Policy=new_policy_str
@@ -64,7 +64,7 @@ def authorize_bucket(bucket_name):
 
 
 def unauthorize_bucket(bucket_name):
-    """Remove Raster Foundry authorization from a bucket
+    """Remove Radiant Earth authorization from a bucket
 
     Args:
         bucket_name (str): the name of the bucket to unauthorize
@@ -72,9 +72,9 @@ def unauthorize_bucket(bucket_name):
     Returns:
         int: the status code from the attempted policy change
     """
-    rf_access_policy = RF_ACCESS_POLICY.copy()
-    rf_access_policy['Resource'] = [
-        x.format(bucket_name) for x in rf_access_policy['Resource']
+    re_access_policy = RE_ACCESS_POLICY.copy()
+    re_access_policy['Resource'] = [
+        x.format(bucket_name) for x in re_access_policy['Resource']
     ]
 
     try:
@@ -86,9 +86,9 @@ def unauthorize_bucket(bucket_name):
             'Statement': []
         }
 
-    if rf_access_policy in existing_policy['Statement']:
+    if re_access_policy in existing_policy['Statement']:
         new_statement = [
-            x for x in existing_policy['Statement'] if x != rf_access_policy
+            x for x in existing_policy['Statement'] if x != re_access_policy
         ]
         existing_policy['Statement'] = new_statement
         if new_statement:

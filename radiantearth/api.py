@@ -20,17 +20,17 @@ except ImportError:
 
 
 SPEC_PATH = os.getenv(
-    'RF_API_SPEC_PATH',
-    'https://raw.githubusercontent.com/raster-foundry/raster-foundry-api-spec/1.4.0/spec/spec.yml'
+    'RE_API_SPEC_PATH',
+    'https://raw.githubusercontent.com/radiantearth/raster-foundry-python-client/feature/reskin/radiantearth/spec.yml',
 )
 
 
 class API(object):
-    """Class to interact with Raster Foundry API"""
+    """Class to interact with Radiant Earth API"""
 
     def __init__(self, refresh_token=None, api_token=None,
-                 host='app.rasterfoundry.com', scheme='https'):
-        """Instantiate an API object to make requests to Raster Foundry's REST API
+                 host='api.radiant.earth', scheme='https'):
+        """Instantiate an API object to make requests to Radiant Earth's REST API
 
         Args:
             refresh_token (str): optional token used to obtain an API token to
