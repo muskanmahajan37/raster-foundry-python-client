@@ -6,7 +6,7 @@ import boto3
 
 
 class Upload(object):
-    """A Raster Foundry upload"""
+    """A Radiant Earth upload"""
 
     s3_client = boto3.client('s3')
 
@@ -82,10 +82,10 @@ class Upload(object):
                 in the current working directory. If passed a list, files will
                 be exactly those files in the list.
             dest_bucket (str): s3 bucket to upload local files to. If the
-                Raster Foundry application does not have permission to read
+                Radiant Earth application does not have permission to read
                 from this location, the upload will fail to process.
             dest_prefix (str): s3 prefix to upload local files to. If the
-                Raster Foundry application does not have permission to read
+                Radiant Earth application does not have permission to read
                 from this location, the upload will fail to process.
             metadata (dict): Additional information to store with this upload.
                 acquisitionDate and cloudCover will be parsed into any created
@@ -137,7 +137,7 @@ class Upload(object):
 
     @classmethod
     def create(cls, api, upload_create):
-        """Post an upload to Raster Foundry for processing
+        """Post an upload to Radiant Earth for processing
 
         Args:
             api (API): API to use for requests
@@ -145,7 +145,7 @@ class Upload(object):
                 upload_create_from_files
 
         Returns:
-            Upload: created object in Raster Foundry
+            Upload: created object in Radiant Earth
         """
 
         return api.client.Imagery.post_uploads(Upload=upload_create).result()

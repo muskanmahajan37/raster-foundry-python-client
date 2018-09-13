@@ -1,4 +1,4 @@
-"""An Export is a job to get underlying geospatial data out of Raster Foundry"""
+"""An Export is a job to get underlying geospatial data out of Radiant Earth"""
 
 import logging
 import time

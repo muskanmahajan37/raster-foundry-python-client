@@ -23,7 +23,7 @@ if NOTEBOOK_SUPPORT:
 
 
 class Project(object):
-    """A Raster Foundry project"""
+    """A Radiant Earth project"""
 
     TILE_PATH_TEMPLATE = '/tiles/{id}/{{z}}/{{x}}/{{y}}/'
     EXPORT_TEMPLATE = '/tiles/{project}/export/'
@@ -47,7 +47,7 @@ class Project(object):
 
     @classmethod
     def create(cls, api, project_create):
-        """Post a project to Raster Foundry
+        """Post a project to Radiant Earth
 
         Args:
             api (API): API to use for requests
@@ -55,7 +55,7 @@ class Project(object):
                 project_create
 
         Returns:
-            Project: created object in Raster Foundry
+            Project: created object in Radiant Earth
         """
         return api.client.Imagery.post_projects(project=project_create)
 
@@ -178,7 +178,7 @@ class Project(object):
 
     def post_annotations(self, annotations_uri):
         annotations = json.loads(file_to_str(annotations_uri))
-        # Convert RV annotations to RF format.
+        # Convert RV annotations to RE format.
         rf_annotations = copy.deepcopy(annotations)
         for feature in rf_annotations['features']:
             properties = feature['properties']

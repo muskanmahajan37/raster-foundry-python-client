@@ -1,4 +1,4 @@
-"""More friendly Raster Foundry exceptions"""
+"""More friendly Radiant Earth exceptions"""
 
 
 class RefreshTokenException(Exception):

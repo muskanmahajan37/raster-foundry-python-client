@@ -1,5 +1,5 @@
 class MapToken(object):
-    """A Raster Foundry map token"""
+    """A Radiant Earth map token"""
 
     def __repr__(self):
         return '<MapToken - {} - {}>'.format(self.project.name, self.token)

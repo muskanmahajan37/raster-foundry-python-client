@@ -16,7 +16,7 @@ if NOTEBOOK_SUPPORT:
 
 
 class Analysis(object):
-    """A Raster Foundry Analysis"""
+    """A Radiant Earth Analysis"""
 
     TILE_PATH_TEMPLATE = '/tools/{id}/{{z}}/{{x}}/{{y}}/'
     EXPORT_TEMPLATE = '/tools/{analysis}/raw/'
