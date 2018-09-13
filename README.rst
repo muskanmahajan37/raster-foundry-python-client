@@ -30,7 +30,7 @@ version, either install a version of the python client that refers to the approp
 set the ``RE_API_SPEC_PATH`` environment variable to a url or local file path pointing to the
 version of the spec that you want to use.
 
-Generally this shouldn't matter, because the Raster Foundry API shouldn't have breaking changes.
+Generally this shouldn't matter, because the Radiant Earth API shouldn't have breaking changes.
 
 
 Installation
