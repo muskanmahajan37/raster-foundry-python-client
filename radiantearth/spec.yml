@@ -1,16 +1,16 @@
 swagger: '2.0'
 info:
-  title: Raster Foundry
+  title: Radiant Earth
   description: An application to find, view, and analyze geospatial data at any scale
   version: "0.1.0"
 
-host: app.rasterfoundry.com
+host: api.radiant.earth
 
 schemes:
   - http
   - https
 
-basePath: /api
+basePath: /platform
 
 produces:
   - application/json
@@ -21,13 +21,13 @@ x-top-matter:
   - title: Introduction
     level: 1
     content: |
-      The Raster Foundry API allows developers to find, view, and analyze geospatial data in Raster Foundry. As the name implies, it's especially useful for working with large raster datasets like satellite imagery.
+      The Radiant Earth API allows developers to find, view, and analyze geospatial data in Radiant Earth. As the name implies, it's especially useful for working with large raster datasets like satellite imagery.
 
-      Raster Foundry is built with an openly licensed, open source code base. If you'd like to peek under the hood, make a request, or become a contributor, <a href="https://github.com/raster-foundry/raster-foundry/issues" target="_blank">find us on Github</a>.
+      Radaint Earth is built with an openly licensed, open source code base. If you'd like to peek under the hood, make a request, or become a contributor, <a href="https://github.com/radiantearth/radiantearth-python-client/issues" target="_blank">find us on Github</a>.
   - title: Authentication
     level: 2
     content: |
-      Our API identifies applications and users with <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens (JWT)</a>. Refresh tokens can be created in your Raster Foundry account and used to generate example requests signed with valid session tokens <a href="https://help.rasterfoundry.com/developer-resources/generating-a-refresh-token-in-order-to-use-the-api" target="_blank">(detailed instructions are available here)</a>.
+      Our API identifies applications and users with <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens (JWT)</a>. Refresh tokens can be created in your Radiant Earth account and used to generate example requests signed with valid session tokens <a href="https://help.rasterfoundry.com/developer-resources/generating-a-refresh-token-in-order-to-use-the-api" target="_blank">(detailed instructions are available here)</a>.
 
 x-resources:
   - name: Projects
@@ -36,7 +36,7 @@ x-resources:
     further-description:
       - title: Project permissions
         content: |
-          Projects are currently private to the user that created them and cannot be discovered by other Raster Foundry users. However, projects can be shared publicly as a tiled web map with a direct link.
+          Projects are currently private to the user that created them and cannot be discovered by other Radaiant Earth users. However, projects can be shared publicly as a tiled web map with a direct link.
           Project permissions will eventually expand to include making projects discoverable to all users or just users within an organization.
   - name: Scenes
     description: |
@@ -54,7 +54,7 @@ x-resources:
         content: |
           Images respect the permissions applied to their parent scenes.
   - name: Uploads
-    description: Uploads are datasets that a user or application has attempted to upload to Raster Foundry (successfully or unsuccessfully).
+    description: Uploads are datasets that a user or application has attempted to upload to Radiant Earth (successfully or unsuccessfully).
     further-description:
       - title: Uploads permissions
         content: |
@@ -63,7 +63,7 @@ x-resources:
     description: |
       "Datasources contain information common to all scenes associated with them, such as the number of bands to expect in images associated with that datasource. A datasource can be specific (e.g. a particular earth observation satellite) or generic (e.g. a 3-band sensor on a UAV). All scenes must have an associated datasource."
 
-      "Currently, datasources cannot be created through the API and must be requested (<a href="https://github.com/azavea/raster-foundry/issues" target="_blank">preferably as a Github issue in the source repository</a>)."
+      "Currently, datasources cannot be created through the API and must be requested (<a href="https://github.com/radiantearth/radiantearth-python-client/issues" target="_blank">preferably as a Github issue in the source repository</a>)."
 
       "In the future, users will be able to manage the creation, amendment, and deletion of datasources directly through the API. Also, users will be able to assign transformations like color correction, band composites, or color maps to datasources as a default for themselves and/or their organizations."
   - name: Tokens
@@ -84,7 +84,7 @@ x-resources:
       Projects can be exported, but individual scenes and images cannot.
   - name: Shapes
     description: |
-      "Shapes are vectors that each user can create and manage. These shapes can then be used in various ways within the Raster Foundry platform."
+      "Shapes are vectors that each user can create and manage. These shapes can then be used in various ways within the Radiant Earth platform."
 
 tags:
   - name: Users
@@ -2597,7 +2597,7 @@ definitions:
       properties:
         id:
           type: string
-          description: User ID for Raster Foundry
+          description: User ID for Radiant Earth
         organizationId:
           type: string
           format: uuid

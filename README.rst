@@ -46,7 +46,7 @@ Without notebook support
 With notebook support
 ~~~~~~~~~~~~~~~~~~~~~
 
-Notebook support requires [`npm`](https://www.npmjs.com/get-npm).
+Notebook support requires `npm <https://www.npmjs.com/get-npm>`_.
 
 .. code:: bash
 
