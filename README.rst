@@ -24,10 +24,10 @@ Usage
 Versions
 ~~~~~~~~
 
-The latest version of `radaintearth` always points to the most recently released swagger spec in
+The latest version of ``radaintearth`` always points to the most recently released swagger spec in
 the raster-foundry/raster-foundy-api-spec repository. If you need to point to a different spec
 version, either install a version of the python client that refers to the appropriate spec, or
-set the `RE_API_SPEC_PATH` environment variable to a url or local file path pointing to the
+set the ``RE_API_SPEC_PATH`` environment variable to a url or local file path pointing to the
 version of the spec that you want to use.
 
 Generally this shouldn't matter, because the Raster Foundry API shouldn't have breaking changes.
@@ -72,35 +72,7 @@ The test suite execution process is managed by ``tox``:
    $ tox
 
 
-Releases
---------
+Contribute
+----------
 
-Releases are automatically published to PyPI through Travis CI when commits are tagged. The following ``git flow`` commands lead to a tagged commit that can be pushed to GitHub:
-
-
-.. code:: bash
-
-   $ git flow release start X.Y.Z
-   $ docker run -ti --rm -v "${PWD}:/changelog" -w "/changelog" "quay.io/azavea/github-changelog-generator:v1.14.3" \
-      --token "${GITHUB_TOKEN}" \
-      --future-release "X.Y.Z" \
-      --no-issues \
-      --no-author \
-      --release-branch develop
-   $ pandoc CHANGELOG.md -o CHANGELOG.rst
-   $ rm CHANGELOG.md
-   $ vim setup.py
-   $ git commit -m "X.Y.Z"
-   $ git flow release publish X.Y.Z
-   $ git flow release finish X.Y.Z
-
-
-After you've completed the ``git flow`` steps above, you'll need to push the changes from your local repository to the GitHub repository:
-
-.. code:: bash
-
-   $ git checkout develop
-   $ git push origin develop
-   $ git checkout master
-   $ git push origin master
-   $ git push --tags
+If you find this client useful and would like to contribute, make a pull request or send us an email at ``code@radiant.earth``.
